@@ -7,13 +7,14 @@ import com.vasurya.model.UserAnswer;
 import com.vasurya.repo.QuizRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
+
 
 import com.vasurya.model.CheckAnswer;
 import com.vasurya.model.Quiz;
@@ -24,6 +25,8 @@ import javax.validation.Valid;
 public class Controller {
 		@Autowired
 	   QuizRepo repo;
+		
+		
 		//1-USER CREATES QUIZ
 		int id = 0;
 		@PostMapping("/api/quizzes")
@@ -55,7 +58,6 @@ public class Controller {
 		//4 - SOLVE A QUIZ
 
 		@PostMapping("/api/quizzes/{id}/solve")
-
 		public CheckAnswer checkuser(@PathVariable("id") int id,@RequestBody UserAnswer us)
 		{
 			CheckAnswer k = new CheckAnswer();
@@ -75,6 +77,14 @@ public class Controller {
 				k.setFeedback("Wrong answer! Please, try again.");
 			}
 			return k;
-
 		}
+		
+		//Test
+				@GetMapping("/test")
+				public String hello(Model model)
+				{
+					return "home";
+				}
+
+		
 }
