@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-YOU'RE HOME BABY!!!
+YOU'RE HOME 
 </body>
 </html>
